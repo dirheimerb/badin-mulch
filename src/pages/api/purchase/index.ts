@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/lib/prisma';
-import { Purchase } from '@prisma/client';
-import { v4 as uuid } from 'uuid';
+
+
 
 export default async function purchaseHandler(
   req: NextApiRequest,
@@ -19,8 +19,6 @@ export default async function purchaseHandler(
     street,
     zip,
   } = req.body;
-
-  const id = uuid();
 
   const order = {
     buyerEmail,
