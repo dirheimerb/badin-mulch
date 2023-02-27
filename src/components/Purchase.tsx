@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import {calculateTotalCost} from '@/lib/cost'
 import Collapse from 'react-bootstrap/Collapse';
 import Dropdown from 'react-bootstrap/Dropdown';
+import CubicFeet from './CubicFeet';
 export default function Purchase() {
   const playerName = 'Braden Dirheimer';
   const [openPricing, setOpenPricing] = React.useState<boolean>(false);
@@ -187,6 +188,9 @@ export default function Purchase() {
           </Card>
         </Collapse>
       </div>
+      <div className="m-2">
+        <CubicFeet />
+      </div>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
@@ -241,6 +245,7 @@ export default function Purchase() {
           <label htmlFor="delivery" className="form-label mt-2">
             Delivery Option
           </label>
+
           <select
             className="form-select"
             aria-label="Select Delivery Option"
@@ -250,11 +255,7 @@ export default function Purchase() {
             onChange={handleDeliveryChange}
             required
           >          
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-down" viewBox="0 0 16 16">
-              <path 
-                fillRule="evenodd" 
-                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-            </svg>          
+                      
             <option value="">Select</option>
             <option value="delivery">Delivery</option>
             <option value="pickup">Pickup</option>
