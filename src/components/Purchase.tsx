@@ -301,7 +301,7 @@ export default function Purchase() {
             </Form.Group>
           </div>
         ) : (
-          <Card style={{ width: '23.5rem', marginTop: '6px', marginBottom: '6px'}}>
+          <Card style={{ width: '75%', marginTop: '6px', marginBottom: '6px'}}>
             <Card.Title
               style={{ textAlign: 'center', marginTop: '6px', marginBottom: '6px'}}
             >Badin Address</Card.Title>

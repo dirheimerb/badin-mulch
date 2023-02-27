@@ -6,3 +6,4 @@ package-lock.json
 src/components/Cost.tsx
 src/components/CubicFeet.tsx
 src/lib/cubicYards.ts
+src/lib/cost.ts
