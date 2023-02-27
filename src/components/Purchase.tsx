@@ -36,7 +36,7 @@ export default function Purchase() {
     e.preventDefault();
     const config = {
       method: 'POST',
-      url: 'http://badin-mulch.vercel.app/api/purchase',
+      url: 'https://badin-mulch.vercel.app/api/purchase',
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
