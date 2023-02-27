@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Collapse from 'react-bootstrap/Collapse';
-
+import Dropdown from 'react-bootstrap/Dropdown';
 export default function Purchase() {
   const playerName = 'Braden Dirheimer';
   const [openPricing, setOpenPricing] = React.useState<boolean>(false);
@@ -31,7 +31,6 @@ export default function Purchase() {
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuantity(Number(e.target.value));
   };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const config = {
@@ -134,7 +133,7 @@ export default function Purchase() {
           aria-controls="example-collapse-text"
           aria-expanded={openDelivery}
         >
-          Pricing Infomation
+          Delivery Infomation
         </Button>
         <Collapse in={openDelivery}>
           <Card style={{ width: '18rem' }}>
@@ -235,26 +234,29 @@ export default function Purchase() {
           />
           <Form.Text className="text-success">{quantity} bags</Form.Text>
         </Form.Group>
-
-        <Form.Group controlId="formBasicDelivery">
-          <Form.Label>Delivery</Form.Label>
-          <Form.Control
-            as="select"
+        <div>
+          <label htmlFor="delivery" className="form-label mt-2">
+            Delivery Option
+          </label>
+          <select
+            className="form-select"
+            aria-label="Select Delivery Option"
+            name='delivery'
+            id='delivery'
             value={delivery}
             onChange={handleDeliveryChange}
             required
-          >
-            {deliveryOptions.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-              >
-                {option.label}
-              </option>
-            ))}
-          </Form.Control>
-        </Form.Group>
-
+          >          
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-down" viewBox="0 0 16 16">
+              <path 
+                fillRule="evenodd" 
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+            </svg>          
+            <option value="">Select</option>
+            <option value="delivery">Delivery</option>
+            <option value="pickup">Pickup</option>
+          </select>
+        </div>
         {delivery === 'delivery' ? (
           <div className="mb-2">
             <Form.Group controlId="formBasicStreet">
@@ -306,12 +308,15 @@ export default function Purchase() {
             </Card.Body>
           </Card>
         )}
+        <div className="d-grid gap-2">
         <Button
           variant="success"
           type="submit"
+          size='lg'
         >
           Submit
         </Button>
+        </div>
       </Form>
     </div>
   );
