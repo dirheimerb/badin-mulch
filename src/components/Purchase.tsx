@@ -301,10 +301,14 @@ export default function Purchase() {
             </Form.Group>
           </div>
         ) : (
-          <Card style={{ width: '24rem', margin: '16px', padding: '2px' }}>
-            <Card.Title>Badin Address</Card.Title>
+          <Card style={{ width: '23.5rem', marginTop: '6px', marginBottom: '6px'}}>
+            <Card.Title
+              style={{ textAlign: 'center', marginTop: '6px', marginBottom: '6px'}}
+            >Badin Address</Card.Title>
             <Card.Body>
-              <Card.Text>571 New London Rd, Hamilton, OH 45013</Card.Text>
+              <Card.Text
+                style={{ textAlign: 'center', marginTop: '6px', marginBottom: '6px'}}
+              >571 New London Rd, Hamilton, OH 45013</Card.Text>
             </Card.Body>
           </Card>
         )}
