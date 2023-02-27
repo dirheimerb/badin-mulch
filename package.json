@@ -11,8 +11,8 @@
     "format": "prettier --write ."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Bradley Dirheimer",
+  "license": "MIT",
   "dependencies": {
     "@prisma/client": "^4.10.1",
     "@vercel/analytics": "^0.1.10",
