@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
+import {calculateTotalCost} from '@/lib/cost'
 import Collapse from 'react-bootstrap/Collapse';
 import Dropdown from 'react-bootstrap/Dropdown';
 export default function Purchase() {
@@ -22,11 +23,8 @@ export default function Purchase() {
     zip: '',
   });
 
-  const deliveryOptions = [
-    { label: 'Select', value: '' },
-    { label: 'Delivery', value: 'delivery' },
-    { label: 'Pickup', value: 'pickup' },
-  ];
+  const cost = calculateTotalCost(quantity)
+  const [showCost, setShowCost] = React.useState(false);
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuantity(Number(e.target.value));
@@ -233,6 +231,11 @@ export default function Purchase() {
             required
           />
           <Form.Text className="text-success">{quantity} bags</Form.Text>
+          <div className="d-flex justify-content-between">
+          <Form.Text className='text-success fs-5'>
+            {`$ ${cost}.00`}
+          </Form.Text>
+          </div>
         </Form.Group>
         <div>
           <label htmlFor="delivery" className="form-label mt-2">
