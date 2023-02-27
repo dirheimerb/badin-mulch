@@ -1,5 +1,5 @@
 import React from "react";
-import { CubicYards } from "@/lib/cubicYards";
+import { CubicYards, calculateBags } from "@/lib/cubicYards";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 //width: number, length: number, height: number
@@ -28,6 +28,7 @@ export default function CubicFeet() {
         return cubicYards;
     }
     const handleCalculation = calculateAll();
+    const handleBagCalculation = calculateBags(handleCalculation);
 
     const handleRestAll = () => {
         setWidth(0);
